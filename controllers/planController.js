@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     try {
       res.json(await Plan.create(req.body));
     } catch (error) {
-      res.status(400).json(error);
+      res.status(400).json(error);  
     }
   });
   
