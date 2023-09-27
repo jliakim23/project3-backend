@@ -15,9 +15,9 @@ PUT /plans/:planId: Update a travel plan.<br>
 DELETE /plans/:planId: Delete a travel plan.<br>
 
 ## Models
-![**Project 2 Model**](images/Models.png)
+![**Project 2 Model**](images/models.jpeg)
 
-## Built With
+## Built Withmodel
 -Node.js<br>
 -NPM<br>
 -MongoDB
