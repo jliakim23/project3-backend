@@ -32,7 +32,7 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", async (req, res) => {
-  if (req.body.username && req.body.password) {
+  if (req.body.name && req.body.password) {
     let plainTextPassword = req.body.password;
     bcrypt.hash(plainTextPassword, 10, async (err, hashedPassword) => {
       req.body.password = hashedPassword;

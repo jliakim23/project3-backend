@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/jliakim23/project3-backend/issues"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "homepage": "https://github.com/jliakim23/project3-backend#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",

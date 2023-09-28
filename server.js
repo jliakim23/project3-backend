@@ -12,7 +12,6 @@ app.use(
 const cors = require("cors");
 require("dotenv").config();
 
-// app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(morgan("tiny"));
 app.use(express.urlencoded({ extended: true }));
