@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const session = require("express-session")
 
 router.get("/login", (req, res) => {
-  res.render("auth/login");
+  res.json({ message: "login" });
 });
 
 router.post("/login", async (req, res) => {
@@ -18,12 +19,16 @@ router.post("/login", async (req, res) => {
         req.session.userId = userToLogin._id;
         req.session.name = userToLogin.name;
 
-        res.redirect("/");
+        res.json({ message: "Login successful" });
       } else {
-        res.send("Incorrect Password");
+        res.status(401).json({ message: "Incorrect Password" });
       }
     });
   }
+});
+
+router.get("/signup", (req, res) => {
+  res.json({ message: "signup" });
 });
 
 router.post("/signup", async (req, res) => {
@@ -33,18 +38,14 @@ router.post("/signup", async (req, res) => {
       req.body.password = hashedPassword;
       let newUser = await User.create(req.body);
 
-      res.redirect("/");
+      res.json({ message: "User created successfully" });
     });
   }
 });
 
-router.get("/signup", (req, res) => {
-  res.render("auth/signup");
-});
-
 router.get("/logout", (req, res) => {
   req.session.destroy();
-  res.redirect("/");
+  res.json({ message: "Logout successful" });
 });
 
 module.exports = router;
