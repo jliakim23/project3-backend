@@ -7,10 +7,9 @@ const planSchema = new mongoose.Schema({
     Description: String,
     startDate: { type: Date, required: true},
     endDate:{ type: Date, required: true},
-    checklist:    {
-    
-      items: [{ type: String }]
-    },
+    checklist: [{
+      items: { type: String }
+    }],
     budget: [
       {
         foodAmount: { type: Number, default: 0 },
