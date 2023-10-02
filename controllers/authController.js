@@ -11,13 +11,13 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   console.log(req.body);
 
-  let userToLogin = await User.findOne({ name: req.body.name });
+  let userToLogin = await User.findOne({ email: req.body.email });
   
   if (userToLogin) {
     bcrypt.compare(req.body.password, userToLogin.password, (err, result) => {
       if (result) {
         req.session.userId = userToLogin._id;
-        req.session.name = userToLogin.name;
+        req.session.email = userToLogin.email;
 
         res.json({ message: "Login successful" });
       } else {
