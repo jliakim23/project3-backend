@@ -14,12 +14,13 @@ router.post("/login", async (req, res) => {
   let userToLogin = await User.findOne({ email: req.body.email });
   
   if (userToLogin) {
+    console.log(userToLogin);
     bcrypt.compare(req.body.password, userToLogin.password, (err, result) => {
       if (result) {
         req.session.userId = userToLogin._id;
         req.session.email = userToLogin.email;
 
-        res.json({ message: "Login successful" });
+        res.json(userToLogin);
       } else {
         res.status(401).json({ message: "Incorrect Password" });
       }
