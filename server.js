@@ -21,14 +21,14 @@ app.use(cors());
 
 app.use(authRoutes);
 
-app.use((req, res, next) => {
-  if (!req.session.userId) {
-    res.status(401).json({ message: "Unauthorized" });
-    return;
-  }
+// app.use((req, res, next) => {
+//   if (!req.session.userId) {
+//     res.status(401).json({ message: "Unauthorized" });
+//     return;
+//   }
 
-  next();
-});
+//   next();
+// });
 
 app.use("/plan", planController)
 
