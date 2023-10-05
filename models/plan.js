@@ -3,12 +3,13 @@ const mongoose = require("../db/connection");
 const planSchema = new mongoose.Schema(
   {
     userId: { ref: "User", type: mongoose.Schema.Types.ObjectId },
-
     title: { type: String, required: true },
     description: String,
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
-    checklist: [{ type: String, checked: Boolean }],
+    checklist: [
+      { item: { type: String }, checklist: { type: Boolean, default: false } },
+    ],
     budget: {
       foodAmount: { type: Number, default: 0 },
       attractionAmount: { type: Number, default: 0 },

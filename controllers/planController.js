@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Plan = require("../models/plan");
+const User = require("../models/user");
 
 //Index
 router.get("/", async (req, res) => {
@@ -23,7 +24,7 @@ router.post("/", async (req, res) => {
 // seed route
 router.get("/seed", async (req, res) => {
   const user = await User.findById(req.session.userId);
-  const seededTrips = await Game.create([
+  const seededTrips = await Plan.create([
     {
       userId: req.session.userId,
       title: "Trip to Japan",
@@ -226,7 +227,7 @@ router.get("/seed", async (req, res) => {
 
   await User.findByIdAndUpdate(
     req.session.userId,
-    { $set: { games: seededTripIds } },
+    { $set: { trips: seededTripIds } },
     { new: true }
   );
   res.redirect("/trips");
