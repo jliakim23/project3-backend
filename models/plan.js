@@ -13,7 +13,7 @@ const planSchema = new mongoose.Schema(
     budget: {
       foodAmount: { type: Number, default: 0 },
       attractionAmount: { type: Number, default: 0 },
-      accomadationAmount: { type: Number, default: 0 },
+      accommodationAmount: { type: Number, default: 0 },
       totalAmount: { type: Number, default: 0 },
     },
   },
