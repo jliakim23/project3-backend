@@ -230,7 +230,6 @@ router.get("/seed", async (req, res) => {
     { $set: { trips: seededTripIds } },
     { new: true }
   );
-  res.redirect("/trips");
 });
 
 //Delete
