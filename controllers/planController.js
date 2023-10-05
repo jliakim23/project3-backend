@@ -157,7 +157,6 @@ router.get("/seed", async (req, res) => {
       description: "Short getaway to Cape Cod for the weekend",
       startDate: "May 3, 2024",
       endDate: "May 5, 2024",
-
       checklist: [
         {
           item: "Beach Gear",
